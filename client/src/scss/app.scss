@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import
+'abstract/variables',
+'abstract/functions',
+'abstract/mixins',
+'abstract/animations';
+
+// 2. Imports
+
+// 3. Base stuff
+@import
+'base/base',
+'base/fonts',
+'base/typography',
+'base/buttons',
+'base/forms';
+
+// 4. Layout-related sections
+// @import
+// 'layout/map';
+
+// 5. Components
+// @import
+// 'components/taskbar';
+
+// 6. Page-specific styles
+// @import
+// 'pages/comingsoon';

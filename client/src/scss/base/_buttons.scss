@@ -1,0 +1,23 @@
+button{
+  appearance: none;
+  color: $black;
+}
+
+.closing-button{
+  border: 0 solid transparent;
+  vertical-align: center;
+  background: none;
+  padding: 4px;
+  margin-top: -4px;
+  transition: color 0.15s ease-in-out;
+  font-weight: bold;
+
+  &:hover, &:active{
+    cursor: pointer;
+    color: $red;
+  }
+
+  i{
+    vertical-align: center;
+  }
+}

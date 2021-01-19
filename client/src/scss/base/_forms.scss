@@ -1,0 +1,33 @@
+.form-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.form-input{
+  width: 100%;
+
+  .form-header{
+    margin-top: 0;
+
+    h4{
+      color: $black;
+      font-size: 14px;
+      margin-left: 5px;
+    }
+
+  }
+
+  textarea{
+    resize: none;
+    width: 100%;
+    display: block;
+    background: $grey;
+    border: 0 solid transparent;
+    padding: 10px 10px 30px;
+    border-radius: 15px;
+    font-size: 12px;
+    min-height: 10px;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
