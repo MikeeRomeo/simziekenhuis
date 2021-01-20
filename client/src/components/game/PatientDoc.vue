@@ -28,7 +28,7 @@
                     <button class="tab-button"
                             :class="{'active' : currentTab === 1}"
                             @click="switchTab(1)">
-                        Patiënt
+                        Anamnese
                     </button>
                     <button class="tab-button"
                             :class="{'active' : currentTab === 2}"

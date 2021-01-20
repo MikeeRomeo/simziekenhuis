@@ -11,7 +11,6 @@
         <section v-else class="game-view">
             <taskbar></taskbar>
             <interactive-map></interactive-map>
-
             <patient-doc></patient-doc>
         </section>
 
@@ -20,7 +19,6 @@
             :key="client.id"
             :contents="client">
         </player-single>
-
     </div>
 </template>
 

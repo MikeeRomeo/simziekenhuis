@@ -5,7 +5,6 @@
   opacity: 0;
 }
 
-
 /* Enter and leave animations can use different */
 /* durations and timing functions.              */
 .slide-fade-enter-active, .slide-fade-leave-active {
@@ -16,4 +15,17 @@
   /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(15px) scale(0.99);
   opacity: 0;
+}
+
+@keyframes popUp {
+  0%   { opacity: 0; transform: scale(0.9)}
+  60% { transform: scale(1.05)}
+  100% { opacity: 1; transform: scale(1)}
+}
+
+.popUp-enter-active {
+  animation: popUp .3s;
+}
+.popUp-leave-active {
+  animation: popUp .3s reverse;
 }

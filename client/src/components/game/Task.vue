@@ -12,7 +12,8 @@
             <p>{{ taskInfo.room }}</p>
 
             <div class="hover-button">
-                <button type="button" class="blue-button">Bekijken</button>
+                <button type="button" class="blue-button"
+                    @click="openSbarMessage">Bekijken</button>
             </div>
         </div>
 
@@ -26,11 +27,17 @@
 import BeeperIcon from '@/assets/icons/pager-solid.svg';
 // import PhoneIcon from 'src/assets/icons/phone-solid.svg';
 import DragIcon from '@/assets/icons/drag_indicator-24px.svg';
+import {bus} from "@/main";
 
 
 export default {
     name: 'Task',
     props: ['taskInfo'],
+    methods:{
+        openSbarMessage(){
+            bus.$emit('OPEN_SBAR_MESSAGE', true);
+        }
+    },
     components: {
         BeeperIcon,
         // PhoneIcon,

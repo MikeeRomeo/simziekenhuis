@@ -7,7 +7,6 @@
         <div class="description">
             <h1>Mvr. Verhaag</h1>
             <p class="room">Kamer 1</p>
-
             <div class="form-input">
                 <div class="form-row form-header">
                     <h4 class="title">Klachten:</h4>
