@@ -29,3 +29,16 @@
 .popUp-leave-active {
   animation: popUp .3s reverse;
 }
+
+@keyframes popUp2 {
+  0%   { opacity: 0; transform: scale(0.9) translate(-50%, -50%)}
+  60% { transform: scale(1.05) translate(-50%, -50%)}
+  100% { opacity: 1; transform: scale(1) translate(-50%, -50%)}
+}
+
+.popUp2-enter-active {
+  animation: popUp2 .3s;
+}
+.popUp2-leave-active {
+  animation: popUp2 .3s reverse;
+}

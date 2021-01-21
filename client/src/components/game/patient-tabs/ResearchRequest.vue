@@ -6,7 +6,7 @@
 
         <div class="request-content">
             <h4>{{ name }}</h4>
-            <button type="button" class="red-button">Toepassen</button>
+            <button type="button" class="red-button" @click="openPopUpContents">Bekijken</button>
 
             <div class="progress">
                 <div class="bar">
@@ -14,19 +14,25 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
 <script>
+import {bus} from "@/main";
+
 export default {
     name: "ResearchRequest",
     props:['icon', 'name', 'duration'],
     data(){
         return{
-            active: false,
+            isRequested: false,
         }
     },
+    methods:{
+        openPopUpContents(event){
+            bus.$emit('SHOW_POPUP', {'state':true,'coords':event});
+        }
+    }
 }
 </script>
 

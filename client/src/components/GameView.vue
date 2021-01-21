@@ -12,6 +12,8 @@
             <taskbar></taskbar>
             <interactive-map></interactive-map>
             <patient-doc></patient-doc>
+
+            <pop-up-content-wrapper></pop-up-content-wrapper>
         </section>
 
         <player-single
@@ -28,6 +30,7 @@ import PlayerSingle from './PlayerSingle.vue';
 import Taskbar from './game/Taskbar';
 import InteractiveMap from './game/InteractiveMap';
 import PatientDoc from "@/components/game/PatientDoc";
+import PopUpContentWrapper from "@/components/PopUpContentWrapper";
 
 export default {
     name: "GameView",
@@ -78,6 +81,7 @@ export default {
         }
     },
     components: {
+        PopUpContentWrapper,
         PlayerSingle,
         Taskbar,
         InteractiveMap,
