@@ -30,7 +30,7 @@ export default {
     },
     methods:{
         openPopUpContents(event){
-            bus.$emit('SHOW_POPUP', {'state':true,'coords':event});
+            bus.$emit('SHOW_POPUP', {'state':true,'coords':event, 'type':this.name});
         }
     }
 }

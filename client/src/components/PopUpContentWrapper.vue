@@ -8,7 +8,12 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-content" :class="'modal-content--' + type">
-                <img src="@/assets/images/hartfilmpje.png">
+                <img v-if="type === 'ECG'" src="@/assets/images/hartfilmpje.png">
+                <img v-if="type === 'X-thorax'" src="@/assets/images/longfoto.png">
+                <img v-if="type === 'eyes'" src="@/assets/images/eyes.png">
+                <video v-if="type === 'head'" width="500" loop autoplay>
+                    <source src="@/assets/images/test_algemene_impressie.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </transition>
@@ -43,6 +48,10 @@ export default {
                 }
                 this.position.posY = data.coords.clientY;
 
+                if(data.type !== null){
+                    this.type = data.type;
+                    console.log(data.type);
+                }
             })
         })
     },
@@ -67,7 +76,7 @@ export default {
     border-radius: 10px;
     box-shadow: rgba(47, 72, 88, 8%) 0 2px 8px;
 
-    img{
+    img, video{
         width: 100%;
         max-width: 500px;
     }
@@ -78,7 +87,7 @@ export default {
 }
 
 .modal-content {
-
+    overflow: hidden;
 }
 
 .close-button {

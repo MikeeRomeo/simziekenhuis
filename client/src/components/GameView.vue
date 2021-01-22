@@ -14,6 +14,8 @@
             <patient-doc></patient-doc>
 
             <pop-up-content-wrapper></pop-up-content-wrapper>
+            <patient-view></patient-view>
+            <look-listen-feel></look-listen-feel>
         </section>
 
         <player-single
@@ -31,6 +33,8 @@ import Taskbar from './game/Taskbar';
 import InteractiveMap from './game/InteractiveMap';
 import PatientDoc from "@/components/game/PatientDoc";
 import PopUpContentWrapper from "@/components/PopUpContentWrapper";
+import PatientView from "@/components/game/PatientView";
+import LookListenFeel from "@/components/game/LookListenFeel";
 
 export default {
     name: "GameView",
@@ -85,7 +89,9 @@ export default {
         PlayerSingle,
         Taskbar,
         InteractiveMap,
-        PatientDoc
+        PatientDoc,
+        PatientView,
+        LookListenFeel
     },
 
 };
