@@ -6,11 +6,29 @@
 
         <div class="request-content">
             <h4>{{ name }}</h4>
-            <button type="button" class="red-button" @click="openPopUpContents">Bekijken</button>
+            <button v-if="isRequested === false && resultCollected === false"
+                    type="button"
+                    class="red-button"
+                    @click="requestResearch">
+                Aanvragen
+            </button>
+
+            <button v-if="isRequested === true && resultCollected === false"
+                    type="button"
+                    class="red-button disabled">
+                Bekijken
+            </button>
+
+            <button v-else-if="resultCollected === true"
+                    type="button"
+                    class="red-button"
+                    @click="openPopUpContents">
+                Bekijken
+            </button>
 
             <div class="progress">
                 <div class="bar">
-                    <div class="filling"></div>
+                    <div class="filling" :style="{width: percentage +'%'}"></div>
                 </div>
             </div>
         </div>
@@ -25,13 +43,37 @@ export default {
     props:['icon', 'name', 'duration'],
     data(){
         return{
+            time:0,
             isRequested: false,
+            resultCollected: false,
+            countDown : 10,
+            percentage: 0,
         }
+    },
+    mounted() {
+        // this.countDown = this.duration * 100;
     },
     methods:{
         openPopUpContents(event){
             bus.$emit('SHOW_POPUP', {'state':true,'coords':event, 'type':this.name});
-        }
+        },
+        countDownTimer(){
+            if(this.countDown > 0) {
+                setTimeout(() => {
+                    this.countDown -= 1
+                    this.percentage += 10
+                    this.countDownTimer()
+                }, 1000)
+            }
+            if(this.countDown <= 0){
+                this.isRequested = false;
+                this.resultCollected = true;
+            }
+        },
+        requestResearch(){
+            this.countDownTimer();
+            this.isRequested = true;
+        },
     }
 }
 </script>
@@ -106,6 +148,11 @@ export default {
                 cursor: pointer;
                 background-color: darken(#F3726A, 20%);
             }
+
+            &.disabled{
+                pointer-events: none;
+                opacity: 0.6;
+            }
         }
     }
 
@@ -127,7 +174,7 @@ export default {
             .filling{
                 background-color: #0051B6;
                 position: absolute;
-                width: 100%;
+                //width: 100%;
                 height: 100%;
                 top: 0;
                 left: 0;

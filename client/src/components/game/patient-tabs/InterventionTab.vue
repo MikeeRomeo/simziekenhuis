@@ -3,41 +3,28 @@
         <intervention-list :tag="'a'" :name="'Airway'">
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Nekkraag
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Endotracheale tube
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Oropharyngeale luchtweg
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Nasopharyngeale luchtweg
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
-            <div class="intervention-list-item">
-                <p class="description">
-                    Non rebreathing masker
-                </p>
-                <button type="button" class="red-button">Toepassen</button>
-            </div>
-            <div class="intervention-list-item">
-                <p class="description">
-                    Non rebreathing masker
-                </p>
-                <button type="button" class="red-button">Toepassen</button>
-            </div>
-
         </intervention-list>
 
         <intervention-list :tag="'b'" :name="'Breathing'">
@@ -49,31 +36,37 @@
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Neusbril
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Masker ballon beademing
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Vernevelen met epinefrine (adreneline)
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Vernevelen met NaCI 0.9%
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Vernevelen met Salbutamol/Ipratroplium
+                </p>
+                <button type="button" class="red-button">Toepassen</button>
+            </div>
+            <div class="intervention-list-item">
+                <p class="description">
+                    Arterial bloedgas spuit
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
@@ -83,42 +76,60 @@
         <intervention-list :tag="'C'" :name="'Circulation'">
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Intraveneuze catheter grijs
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Intraveneuze catheter groen
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Intraveneuze catheter roze
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Botnaald
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
-                    Non rebreathing masker
+                    Urinecatheter
                 </p>
                 <button type="button" class="red-button">Toepassen</button>
             </div>
-            <div class="intervention-list-item">
-                <p class="description">
-                    Non rebreathing masker
-                </p>
-                <button type="button" class="red-button">Toepassen</button>
-            </div>
-
         </intervention-list>
+
+        <intervention-list :tag="'d'" :name="'Airway'">
+            <div class="intervention-list-item">
+                <p class="description">
+                    Point-of-care glucose
+                </p>
+                <button type="button" class="red-button">Toepassen</button>
+            </div>
+        </intervention-list>
+
+        <intervention-list :tag="'e'" :name="'Exposure/environnement'">
+            <div class="intervention-list-item">
+                <p class="description">
+                    Deken
+                </p>
+                <button type="button" class="red-button">Toepassen</button>
+            </div>
+            <div class="intervention-list-item">
+                <p class="description">
+                    Thermometer
+                </p>
+                <button type="button" class="red-button">Toepassen</button>
+            </div>
+        </intervention-list>
+
     </div>
 </template>
 

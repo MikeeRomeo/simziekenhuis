@@ -119,14 +119,14 @@ export default {
 .patient-inspection{
     [class*="-cta"]{
         position: absolute;
-        background-color: #0051b6;
-        opacity: .2;
+        //background-color: #0051b6;
+        //opacity: .2;
         cursor: pointer;
         transition: opacity 0.2s ease-in-out;
 
-        &:hover{
-            opacity: 0.5;
-        }
+        //&:hover{
+        //    opacity: 0.5;
+        //}
     }
 
     .head-cta{

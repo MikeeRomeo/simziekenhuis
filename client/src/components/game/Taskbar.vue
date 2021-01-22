@@ -24,7 +24,7 @@ export default {
                 task2: {
                     id: 2,
                     patient: 'Telefoontje',
-                    description: 'Huisarts belt',
+                    description: 'Huisarts kondigt een patiënt aan',
                     room: '',
                     priority: 4,
                 },
@@ -35,12 +35,10 @@ export default {
                     room: 'Ambulance dienst',
                     priority: 2,
                 }
-
             }
         }
     },
     components: {Task, TaskMessageModal},
-
 }
 </script>
 

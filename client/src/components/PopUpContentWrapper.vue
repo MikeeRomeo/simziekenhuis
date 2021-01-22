@@ -14,6 +14,9 @@
                 <video v-if="type === 'head'" width="500" loop autoplay>
                     <source src="@/assets/images/test_algemene_impressie.mp4" type="video/mp4">
                 </video>
+                <div class="text-content" v-if="type === 'wrist'">
+                    Regulair & equaal,
+                </div>
             </div>
         </div>
     </transition>
@@ -88,6 +91,11 @@ export default {
 
 .modal-content {
     overflow: hidden;
+    background-color: #F2F2F2;
+
+    .text-content{
+        padding: 18px 20px 38px;
+    }
 }
 
 .close-button {
