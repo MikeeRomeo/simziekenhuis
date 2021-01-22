@@ -16,6 +16,8 @@
             <pop-up-content-wrapper></pop-up-content-wrapper>
             <patient-view></patient-view>
             <look-listen-feel></look-listen-feel>
+
+            <phone-list></phone-list>
         </section>
 
         <player-single
@@ -35,6 +37,7 @@ import PatientDoc from "@/components/game/PatientDoc";
 import PopUpContentWrapper from "@/components/PopUpContentWrapper";
 import PatientView from "@/components/game/PatientView";
 import LookListenFeel from "@/components/game/LookListenFeel";
+import PhoneList from "@/components/game/PhoneList";
 
 export default {
     name: "GameView",
@@ -91,7 +94,8 @@ export default {
         InteractiveMap,
         PatientDoc,
         PatientView,
-        LookListenFeel
+        LookListenFeel,
+        PhoneList
     },
 
 };

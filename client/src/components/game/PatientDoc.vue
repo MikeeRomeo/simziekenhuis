@@ -14,8 +14,8 @@
                         <p>Kamer 1</p>
                     </div>
                     <div class="symptoms">
-                        <h4>Klachten</h4>
-                        <p>Opgenomen op vermoeden van longontsteking</p>
+                        <h4>Reden van komst:</h4>
+                        <p>Presentatie op vermoeden van longontsteking</p>
                     </div>
                     <button
                         type="button"
@@ -33,25 +33,25 @@
                     <button class="tab-button"
                             :class="{'active' : currentTab === 2}"
                             @click="switchTab(2)">
-                        Interventies
+                        Lichamelijk onderzoek
                     </button>
                     <button class="tab-button"
                             :class="{'active' : currentTab === 3}"
                             @click="switchTab(3)">
-                        Medicatie
+                        Aanvullend onderzoek
                     </button>
                     <button class="tab-button"
                             :class="{'active' : currentTab === 4}"
                             @click="switchTab(4)">
-                        Onderzoeken
+                        Beleid
                     </button>
                 </div>
 
                 <div class="patient__active-tab">
                     <info-tab v-if="currentTab === 1"></info-tab>
-                    <intervention-tab v-if="currentTab === 2"></intervention-tab>
-                    <medication-tab v-if="currentTab === 3"></medication-tab>
-                    <research-tab v-if="currentTab === 4"></research-tab>
+                    <medication-tab v-if="currentTab === 2"></medication-tab>
+                    <research-tab v-if="currentTab === 3"></research-tab>
+                    <intervention-tab v-if="currentTab === 4"></intervention-tab>
                 </div>
 
             </div>

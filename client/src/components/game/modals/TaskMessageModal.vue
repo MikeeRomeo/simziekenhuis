@@ -1,20 +1,20 @@
 <template>
     <ModalWrapper>
         <div class="modal-content">
-            <h2>Overdracht SBAR Ambulance Duo</h2>
+            <h2>Overdracht Ambulance</h2>
             <p>
                 S = Mw. Verhaag, 65 jaar. Presentatie op SEH op verzoek van de huisarts i.v.m. dyspneu en koorts, verdenking
-                pneumosepsis. Dan de ABCDE zoals die er nu staat minus de interventies (dus de dingen die nu tussen haakjes
-                staan).
+                pneumosepsis.
                 <br><br>
                 B = Mogelijk allergisch voor penicilline. Medicatie: antihypertensiva, diuretica, statine, insuline, pufjes.
                 Bekend met diabetes, hypertensie, hoog cholesterol, COPD.
                 <br><br>
                 A = lage sat (90%), na start 15L O2 via NRM sat 96%. Hypotensief (RR 88/54mmHg, p100bpm), na fluid challenge
-                NaCl 0,9% 500cc RR 100/64mmHg, p 88bpm. O.v.v. pneumosepsis nu ingestuurd voor beoordeling en behandeling op
-                de SEH.
+                NaCl 0,9% 500cc RR 100/64mmHg, p 88bpm.
                 <br><br>
-                R = lage saturatie waarvoor
+                Werkdiagnose: Pneumosepsis
+                <br><br>
+                R = Opvang door SEH arts of internist volgens sepsisprotocol.
             </p>
         </div>
     </ModalWrapper>
