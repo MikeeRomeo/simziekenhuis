@@ -1,0 +1,126 @@
+{
+  "caseName": "Pneumosepsis",
+  "id": 1,
+  "firstName": "Mvr.",
+  "lastName": "Verhaag",
+  "gender": "female",
+  "age": "64",
+  "caseInfo": {
+    "short": "Opgenomen op vermoeden van longontsteking",
+    "long": "De huisarts is kort tevoren bij je geweest omdat je, na je al enkele dagen grieperig te hebben gevoeld (verstopte neus, keelpijn, spierpijn, subfebriele temperatuur), vannacht flink ziek bent geworden. Je lag in aanvallen te rillen en te klappertanden en leek volgens je partner erg in de war. Toen de huisarts vanmorgen kwam kijken vond hij je erg kortademig en zwak op de benen. Onder verdenking van een longontsteking word je nu ingestuurd. Je wordt opgehaald door de ambulance. Er zijn nog geen medicijnen gestart/gewijzigd. Bij navraag geen zieken in de omgeving, je bent niet recent in het buitenland geweest, hebt geen diercontact gehad en hebt geen bezoek gebracht aan sauna/tuincentra. ",
+    "registration": "ambulance",
+    "colorCode": "oranje",
+    "difficulty": "moeilijk"
+  },
+  "patientInfo":{
+    "allergies": "je hebt een mogelijke allergie voor penicilline, maar dat is alweer zo lang geleden dat je niet meer precies weet wat je daar van kreeg (jeuk, bultjes?)",
+    "medication": "(handgeschreven briefje in portemonnee): metoprolol ZOC 1 dd 100mg, lisinopril 1 dd 10mg, hydrochloorthiazide 1 dd 12.5mg, simvastatine 1 dd 40mg, novomix '30' 40-24 EH, foradil DA 2 dd 1 pufje 12ug met voorzetkamer, spiriva 1 dd 18ug. ",
+    "history": "hypertensie, hypercholesterolaemie, diabetes mellitus type 2, COPD GOLD II. ",
+    "lastMeal": "kopje thee vanmorgen omstreeks 7.30u",
+    "moodInstruction": ""
+  },
+  "physicalExamination": {
+    "head":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "mouth":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "eyes":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "neck":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "chest":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "back":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "armLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "wristLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "armRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "wristRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "legLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "feetLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "legRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "feetRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    }
+  },
+  "researchRequests":{
+    "ecg": { "type": "ECG", "result": "ecg_1.png", "delay": 5, "file": true},
+    "radiology": [
+      { "type": "X-thorax", "result": "thorax_1.png", "delay": 10, "rapport": "", "rapportDelay": 10, "file": true }
+    ],
+    "lab": {
+      "type": "Lab",
+      "result": "ABG: pH 7.28, O2 9.6kPa, CO2 4.6kPa, bic 16.8mmol/L, CRP246, L18.6 (ns++), lactaat 3.6, Kr106umol/L, voorts geen afwijkingen. Sed: geen afwijkingen.",
+      "delay": 20,
+      "file": false
+    }
+  },
+  "patientValues": {
+    "saturation": 97,
+    "breathingFrequentie": 12,
+    "bpm": 80,
+    "mmHg": "140/84",
+    "AVPU": "A",
+    "temperature": 37.4
+  },
+  "interventions": [
+    {
+      "type": "",
+      "values": [
+        {
+          "type":"saturation",
+          "saturation": 97,
+          "time": 0
+        }
+      ]
+    }
+  ]
+}

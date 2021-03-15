@@ -1,6 +1,6 @@
 <template>
     <div id="taskbar">
-        <task v-for="task in currentTasks" :task-info="task" :key="task.id"></task>
+        <task v-for="task in tasks" :task-info="getCase(task.caseId)" :patientRoom="task.room" :key="task.id"></task>
         <task-message-modal></task-message-modal>
     </div>
 </template>
@@ -8,34 +8,47 @@
 <script>
 import Task from './Task';
 import TaskMessageModal from './modals/TaskMessageModal';
+import cases from '@/assets/js/patientCases.json';
 
 export default {
     name: 'Taskbar',
+    props: ['tasks', 'userRole'],
     data() {
         return {
-            currentTasks: {
-                task1: {
-                    id: 1,
-                    patient: 'Mvr. Verhaag',
-                    description: 'Long klachten',
-                    room: 'Kamer 1',
-                    priority: 2,
-                },
-                task2: {
-                    id: 2,
-                    patient: 'Telefoontje',
-                    description: 'Huisarts kondigt een patiënt aan',
-                    room: '',
-                    priority: 4,
-                },
-                task3: {
-                    id: 3,
-                    patient: 'Aankondiging',
-                    description: 'Patiënt onderweg',
-                    room: 'Ambulance dienst',
-                    priority: 2,
+            allCases: cases,
+            // currentTasks: {
+            // 	task1: {
+            // 		id: 1,
+            // 		patient: 'Mvr. Verhaag',
+            // 		description: 'Long klachten',
+            // 		room: 'Kamer 1',
+            // 		priority: 2,
+            // 	},
+            // 	task2: {
+            // 		id: 2,
+            // 		patient: 'Telefoontje',
+            // 		description: 'Huisarts kondigt een patiënt aan',
+            // 		room: '',
+            // 		priority: 4,
+            // 	},
+            // 	task3: {
+            // 		id: 3,
+            // 		patient: 'Aankondiging',
+            // 		description: 'Patiënt onderweg',
+            // 		room: 'Ambulance dienst',
+            // 		priority: 2,
+            // 	}
+            // }
+
+        }
+    },
+    methods: {
+        getCase(id) {
+            return this.allCases.find(item => {
+                if (item.id === id) {
+                    return item;
                 }
-            }
+            })
         }
     },
     components: {Task, TaskMessageModal},

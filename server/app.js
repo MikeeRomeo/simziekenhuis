@@ -14,6 +14,23 @@ var position = {
     y: 200
 };
 
+var tasks = [
+    {
+        type: "case",
+        id: 1,
+        caseId: 1,
+        assignedTo:"anios_1",
+        room:"kamer 1"
+    },
+    {
+        type: "case",
+        id: 2,
+        caseId: 2,
+        assignedTo:"anios_1",
+        room:"kamer 4"
+    }
+];
+
 var users = {};
 
 socketio.on("connection", (socket) => {
@@ -33,9 +50,7 @@ socketio.on("connection", (socket) => {
 
     users[socket.id] = user;
     socketio.emit('new_user', users); // Send the dictionnary
-    socketio.emit('connected_user', user); // Send the dictionnary
-
-  
+    socketio.emit('connected_user',{ user:user, tasks:tasks}); // Send the dictionnary
 
     // socket.emit("position", position);
     // socket.on("move", data => {
@@ -68,6 +83,10 @@ socketio.on("connection", (socket) => {
     socket.on('role_selected', data =>{
         user.role = data;
         console.log(user.role);
+    });
+
+    socket.on('update_tasks', data =>{
+        console.log(tasks);
     });
 
     socket.on('disconnect', function(){

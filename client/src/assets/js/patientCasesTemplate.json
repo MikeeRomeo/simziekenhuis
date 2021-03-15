@@ -1,0 +1,124 @@
+{
+  "case1": {
+    "caseName": "",
+    "id": 1,
+    "firstName": "",
+    "lastName": "",
+    "gender": "",
+    "age": "",
+    "caseInfo": {
+      "short": "",
+      "long": "",
+      "registration":"",
+      "colorCode": "",
+      "difficulty": "",
+    },
+    "patientInfo":{
+      "allergies": [],
+      "medication": [],
+      "history": "",
+      "lastMeal": "",
+      "moodInstruction": ""
+    },
+    "physicalExamination": {
+      "head":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "mouth":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "eyes":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "neck":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "chest":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "back":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "armLeft":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "wristLeft":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "armRight":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "wristRight":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "legLeft":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "feetLeft":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "legRight":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      },
+      "feetRight":{
+        "look": "",
+        "listen": "",
+        "feel": ""
+      }
+    },
+    "researchRequests":{
+      "ecg": { "type": "ECG", "result": "", "delay": 5, "file": true},
+      "radiology": [
+        { "type": "X-thorax", "result": "", "delay": 10, "rapport": "", "rapportDelay": 10, "file": true },
+        { "type": "Echo", "result": "", "delay": 10, "rapport": "", "rapportDelay": 10, "file": false }
+      ],
+      "lab": { "type": "Lab", "result": "", "delay": 20, "file": false }
+    },
+    "patientValues": {
+      "saturation": 97,
+      "breathingFrequentie": 12,
+      "bpm": 80,
+      "mmHg": "140/84",
+      "AVPU": "A",
+      "temperature": 37.4
+    },
+    "interventions": [
+      {
+        "type": "",
+        "values": [
+          {
+            "type":"saturation",
+            "saturation": 97,
+            "time": 0
+          }
+        ]
+      }
+    ]
+  }
+}

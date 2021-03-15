@@ -1,15 +1,15 @@
 <template>
     <div class="task">
         <div class="task__header">
-            <div class="icon" :class="'task-priority--' + taskInfo.priority">
+            <div class="icon" :class="'task-priority--' + taskInfo.caseInfo.priority">
                 <beeper-icon></beeper-icon>
             </div>
-            <h3>{{ taskInfo.patient }}</h3>
+            <h3>{{ taskInfo.firstName }} {{ taskInfo.lastName }}</h3>
             <drag-icon class="drag"></drag-icon>
         </div>
         <div class="task__body">
-            <p>{{ taskInfo.description }}</p>
-            <p>{{ taskInfo.room }}</p>
+            <p>{{ taskInfo.caseInfo.registration }}</p>
+            <p>{{ patientRoom }}</p>
 
             <div class="hover-button">
                 <button type="button" class="blue-button"
@@ -28,11 +28,12 @@ import BeeperIcon from '@/assets/icons/pager-solid.svg';
 // import PhoneIcon from 'src/assets/icons/phone-solid.svg';
 import DragIcon from '@/assets/icons/drag_indicator-24px.svg';
 import {bus} from "@/main";
+import cases from '@/assets/js/case_2.json';
 
 
 export default {
     name: 'Task',
-    props: ['taskInfo'],
+    props: ['taskInfo', 'patientRoom'],
     methods:{
         openSbarMessage(){
             bus.$emit('OPEN_SBAR_MESSAGE', true);
@@ -43,6 +44,7 @@ export default {
         // PhoneIcon,
         DragIcon
     },
+	allCases: cases,
 }
 </script>
 

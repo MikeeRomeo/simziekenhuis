@@ -2,14 +2,14 @@
     <div>
         <section class="role-select" v-if="!roleConfirmed">
             <label for="roles">Choose a role:</label><br/>
-            <select name="roles" v-model="selectedRole">
+            <select id="roles" name="roles" v-model="selectedRole">
                 <option v-for="role in roles" :value="role" :key="role">{{ role }}</option>
             </select><br/>
             <button @click="setRole()">Selecteren</button>
         </section>
 
-        <section v-else class="game-view">
-            <taskbar></taskbar>
+        <section  v-if="roleConfirmed && (selectedRole === 'anios_1' || selectedRole === 'anios_2')" class="game-view">
+            <taskbar :tasks="currentTasks" :userRole="selectedRole"></taskbar>
             <interactive-map></interactive-map>
             <patient-doc></patient-doc>
 
@@ -19,6 +19,10 @@
 
             <phone-list></phone-list>
         </section>
+
+      <section  v-if="selectedRole === 'supervisor' && roleConfirmed" class="game-view">
+        <interactive-map></interactive-map>
+      </section>
 
         <player-single
             v-for="client in clients"
@@ -50,12 +54,14 @@ export default {
                 x: 0,
                 y: 0
             },
+            currentTasks: [],
             selectedRole: null,
             roleConfirmed: false,
             roles: [
                 'supervisor',
                 'patient',
-                'anios',
+                'anios_1',
+                'anios_2',
                 'verpleegkundige'
             ],
         }
@@ -68,7 +74,9 @@ export default {
         window.addEventListener('mousemove', this.mouseIsMoving);
 
         this.socket.on('connected_user', data => {
-            console.log('current id: ' + data.id);
+            console.log('current id: ' + data.user.id);
+            this.currentTasks = data.tasks;
+            console.log(data.tasks);
         });
 
         this.socket.on('all_mouse_activity', data => {

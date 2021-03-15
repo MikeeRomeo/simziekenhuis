@@ -1,0 +1,127 @@
+{
+  "caseName": "DVT",
+  "id": 2,
+  "firstName": "Dhr.",
+  "lastName": "Verhulst",
+  "gender": "male",
+  "age": "53",
+  "caseInfo": {
+    "short": "Verdenking DVT",
+    "long": "Sinds 2 dagen dik, pijnlijk, rechter onderbeen. Klachten zijn begonnen na een vliegreis van Amerika naar Nederland (vliegduur: 10 uur).",
+    "registration": "Zelfverwijzer",
+    "colorCode": "geel",
+    "difficulty": "laag"
+  },
+  "patientInfo":{
+    "allergies": "geen",
+    "medication": "geen",
+    "history": "Status na verkeersongeval in 2001, destijds gecompliceerde fractuur linker been waarvoor operatie en revalidatietraject, hooikoorts. Wat de patient weet: Ooit geopereerd aan mijn linker been na een auto-ongeluk, verder niks.",
+    "lastMeal": "niet relevant",
+    "moodInstruction": ""
+  },
+  "physicalExamination": {
+    "head":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "mouth":{
+      "look": "Geen afwijking",
+      "listen": "Geen hoorbare ademhaling",
+      "feel": ""
+    },
+    "eyes":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "neck":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "chest":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "back":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "armLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "wristLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "armRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "wristRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "legLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "feetLeft":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "legRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    },
+    "feetRight":{
+      "look": "",
+      "listen": "",
+      "feel": ""
+    }
+  },
+  "researchRequests":{
+    "ecg": { "type": "ECG", "result": "ecg_2.png", "delay": 5, "file": true},
+    "radiology": [
+      { "type": "X-thorax", "result": "thorax_2.png", "delay": 10, "rapport": "", "rapportDelay": 10, "file": true },
+      { "type": "Echo", "result": "thorax_1.png", "delay": 10, "rapport": "", "rapportDelay": 10, "file": false }
+    ],
+    "lab": {
+      "type": "Lab",
+      "result": "ABG: pH 7.28, O2 9.6kPa, CO2 4.6kPa, bic 16.8mmol/L, CRP246, L18.6 (ns++), lactaat 3.6, Kr106umol/L, voorts geen afwijkingen. Sed: geen afwijkingen.",
+      "delay": 20,
+      "file": false
+    }
+  },
+  "patientValues": {
+    "saturation": 97,
+    "breathingFrequentie": 12,
+    "bpm": 80,
+    "mmHg": "140/84",
+    "AVPU": "A",
+    "temperature": 37.4
+  },
+  "interventions": [
+    {
+      "type": "",
+      "values": [
+        {
+          "type":"saturation",
+          "saturation": 97,
+          "time": 0
+        }
+      ]
+    }
+  ]
+}

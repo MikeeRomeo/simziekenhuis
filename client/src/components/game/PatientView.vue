@@ -8,11 +8,11 @@
                 <i class="fas fa-times"></i>
             </button>
             <div class="modal-content patient-inspection" :class="'modal-content--' + type">
-                <img class="vector-model" src="@/assets/characters/Lady.png" alt="">
+                <img class="vector-model" src="@/assets/characters/Lady-v2.png" alt="">
 
                 <div class="head-cta" @click="inspectBodyPart($event, 'head')"></div>
-                <div class="mouth-cta" @click="inspectBodyPart($event, 'mouth')"></div>
-                <div class="eyes-cta" @click="inspectBodyPart($event, 'eyes')"></div>
+<!--                <div class="mouth-cta" @click="inspectBodyPart($event, 'mouth')"></div>-->
+<!--                <div class="eyes-cta" @click="inspectBodyPart($event, 'eyes')"></div>-->
                 <div class="chest-cta" @click="inspectBodyPart($event, 'chest')"></div>
                 <div class="wrist-left-cta" @click="inspectBodyPart($event, 'wrist')"></div>
                 <div class="wrist-right-cta" @click="inspectBodyPart($event, 'wrist')"></div>
@@ -119,22 +119,22 @@ export default {
 .patient-inspection{
     [class*="-cta"]{
         position: absolute;
-        //background-color: #0051b6;
-        //opacity: .2;
         cursor: pointer;
         transition: opacity 0.2s ease-in-out;
 
+        //background-color: #0051b6;
+        //opacity: .5;
         //&:hover{
-        //    opacity: 0.5;
+        //    opacity: 0.8;
         //}
     }
 
     .head-cta{
-        width: 160px;
-        height: 160px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
-        top: 55px;
-        left: 133px;
+        top: 75px;
+        left: 160px;
         z-index: 2;
     }
 
@@ -156,30 +156,30 @@ export default {
     }
 
     .chest-cta{
-        width: 120px;
-        height: 140px;
-        top: 220px;
+        width: 142px;
+        height: 221px;
+        top: 173px;
         left: 148px;
         z-index: 2;
         border-radius: 25px 25px 0 0;
     }
 
     .wrist-left-cta{
-        width: 35px;
-        height: 50px;
-        top: 320px;
-        left: 104px;
+        width: 40px;
+        height: 70px;
+        top: 238px;
+        left: 69px;
         z-index: 2;
-        transform: rotate(9deg);
+        transform: rotate(14deg);
     }
 
     .wrist-right-cta{
-        width: 35px;
-        height: 50px;
-        top: 281px;
-        left: 255px;
+        width: 45px;
+        height: 70px;
+        top: 243px;
+        left: 331px;
         z-index: 4;
-        transform: rotate(70deg);
+        transform: rotate(-12deg);
     }
 }
 
