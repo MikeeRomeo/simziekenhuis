@@ -11,6 +11,7 @@ module.exports = {
             .use('vue-svg-loader')
             .loader('vue-svg-loader');
     },
+    lintOnSave: false,
     css: {
         loaderOptions: {
             sass: {

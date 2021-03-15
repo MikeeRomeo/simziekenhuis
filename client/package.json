@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "es6-promise": "^4.2.8",
     "socket.io": "^3.0.4",
     "socket.io-client": "^3.0.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",

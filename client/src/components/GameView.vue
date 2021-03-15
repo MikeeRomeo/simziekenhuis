@@ -10,8 +10,8 @@
 
         <section  v-if="roleConfirmed && (selectedRole === 'anios_1' || selectedRole === 'anios_2')" class="game-view">
             <taskbar :tasks="currentTasks" :userRole="selectedRole"></taskbar>
-            <interactive-map></interactive-map>
-            <patient-doc></patient-doc>
+            <interactive-map :tasks="currentTasks" :userRole="selectedRole"></interactive-map>
+            <patient-doc :tasks="currentTasks" :userRole="selectedRole"></patient-doc>
 
             <pop-up-content-wrapper></pop-up-content-wrapper>
             <patient-view></patient-view>

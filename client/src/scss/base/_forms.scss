@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+
+  &:last-child{
+    margin-bottom: 20px;
+  }
 }
 
 .form-input{

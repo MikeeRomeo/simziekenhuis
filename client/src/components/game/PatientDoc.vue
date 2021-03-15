@@ -1,21 +1,29 @@
 <template>
     <section>
         <div class="patient-list">
-            <patient-list-single></patient-list-single>
+            <patient-list-single
+                v-for="task in tasks"
+                :taskInfo="getCase(task.caseId)"
+                :patientRoom="task.room"
+                :key="task.id">
+            </patient-list-single>
         </div>
         <transition name="slide-fade">
-            <div class="patient" v-if="docIsActive">
+            <div class="patient"
+                 v-for="(patient, index) in allCases"
+                 :key="patient.id"
+                 v-if="docIsActive && selectedCase === patient.id">
                 <div class="patient__header">
                     <div class="image">
-                        <img src="@/assets/test-profielfoto.jpg"/>
+                        <img :src="require('@/assets/images/cases/case_'+ patient.id + '_profile.jpg')" />
                     </div>
                     <div class="name">
-                        <h2>Mvr. Verhaag</h2>
-                        <p>Kamer 1</p>
+                        <h2>{{ patient.firstName }} {{patient.lastName}}</h2>
+                        <p>{{getRoom(patient.id).room}}</p>
                     </div>
                     <div class="symptoms">
                         <h4>Reden van komst:</h4>
-                        <p>Presentatie op vermoeden van longontsteking</p>
+                        <p>{{patient.caseInfo.short}}</p>
                     </div>
                     <button
                         type="button"
@@ -48,12 +56,18 @@
                 </div>
 
                 <div class="patient__active-tab">
-                    <info-tab v-if="currentTab === 1"></info-tab>
-                    <medication-tab v-if="currentTab === 2"></medication-tab>
-                    <research-tab v-if="currentTab === 3"></research-tab>
+                    <info-tab :info="patient"
+                              :room="getRoom(patient.id).room"
+                              :index="index"
+                              v-if="currentTab === 1">
+                    </info-tab>
+                    <medication-tab
+                        :index="index"
+                        v-if="currentTab === 2"
+                    ></medication-tab>
+                    <research-tab :info="patient" v-if="currentTab === 3"></research-tab>
                     <intervention-tab v-if="currentTab === 4"></intervention-tab>
                 </div>
-
             </div>
         </transition>
     </section>
@@ -66,18 +80,23 @@ import InterventionTab from "@/components/game/patient-tabs/InterventionTab";
 import MedicationTab from "@/components/game/patient-tabs/MedicationTab";
 import ResearchTab from "@/components/game/patient-tabs/ResearchTab";
 import {bus} from "@/main";
+import cases from '@/assets/js/patientCases.json';
 
 export default {
     name: "PatientDoc",
+    props: ['tasks', 'userRole'],
     data() {
         return {
             currentTab: 1,
             docIsActive: false,
+            allCases: cases,
+            selectedCase:0,
         }
     },
     created() {
         bus.$on('OPEN_DOC', (data) => {
-            this.docIsActive = data;
+            this.selectedCase = data.caseId;
+            this.docIsActive = data.show;
         })
     },
     methods: {
@@ -86,6 +105,20 @@ export default {
         },
         closeDoc() {
             this.docIsActive = false;
+        },
+        getCase(id) {
+            return this.allCases.find(item => {
+                if (item.id === id) {
+                    return item;
+                }
+            })
+        },
+        getRoom(id) {
+            return this.tasks.find(item => {
+                if (item.id === id) {
+                    return item;
+                }
+            })
         }
     },
     components: {
@@ -109,6 +142,7 @@ export default {
 .patient {
     width: 625px;
     height: 820px;
+    max-height: 90%;
     background-color: $grey;
     position: fixed;
     right: 0;
@@ -173,7 +207,6 @@ export default {
         }
 
     }
-
 
     &__tabs {
         padding: 22px 12px 0;

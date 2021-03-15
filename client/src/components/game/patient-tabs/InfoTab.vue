@@ -2,20 +2,17 @@
     <div>
     <div class="form-row">
         <div class="image">
-            <img src="@/assets/test-profielfoto.jpg" alt="">
+            <img :src="require('@/assets/images/cases/case_'+ info.id + '_profile.jpg')" />
         </div>
         <div class="description">
-            <h1>Mvr. Verhaag</h1>
-            <p class="room">Kamer 1</p>
+            <h1>{{ info.firstName }} {{ info.lastName}}</h1>
+            <p class="room">{{ room }}</p>
             <div class="form-input">
                 <div class="form-row form-header">
                     <h4 class="title">Klachten:</h4>
                     <button class="edit-button">Bewerken <i class="fas fa-pencil-alt fa-fw"></i></button>
                 </div>
-                <textarea name="symptoms">
-                    - Opgenomen op vermoeden van longontsteking <br>
-                    - Enkele dagen grieperig <br>
-                    - verstopte neus, keelpijn, spierpijn, subfebriele temperatuur
+                <textarea name="symptoms" v-model="symptoms">
                 </textarea>
             </div>
         </div>
@@ -27,8 +24,7 @@
                     <h4 class="title">Voorgeschiedenis:</h4>
                     <button class="edit-button">Bewerken <i class="fas fa-pencil-alt fa-fw"></i></button>
                 </div>
-                <textarea name="symptoms">
-                    hypertensie, hypercholesterolaemie, diabetes mellitus type 2, COPD GOLD II.
+                <textarea name="history" v-model="history">
                 </textarea>
             </div>
         </div>
@@ -39,9 +35,7 @@
                     <h4 class="title">Allergie:</h4>
                     <button class="edit-button">Bewerken <i class="fas fa-pencil-alt fa-fw"></i></button>
                 </div>
-                <textarea name="symptoms">
-                    Een mogelijke allergie voor penicilline,
-                    maar dat is alweer zo lang geleden dat ze niet meer precies weet wat ze daar van kreeg.
+                <textarea name="allergies" v-model="allergies">
                 </textarea>
             </div>
         </div>
@@ -52,11 +46,7 @@
                     <h4 class="title">Medicatie:</h4>
                     <button class="edit-button">Bewerken <i class="fas fa-pencil-alt fa-fw"></i></button>
                 </div>
-                <textarea name="symptoms">
-                    (handgeschreven briefje in portemonnee):
-                    metoprolol ZOC 1 dd 100mg, lisinopril 1 dd 10mg, hydrochloorthiazide 1 dd 12.5mg,
-                    simvastatine 1 dd 40mg, novomix '30' 40-24 EH, foradil DA 2 dd 1 pufje 12ug met voorzetkamer,
-                    spiriva 1 dd 18ug.
+                <textarea name="medication" v-model="medication">
                 </textarea>
             </div>
         </div>
@@ -67,8 +57,7 @@
                     <h4 class="title">Last meal:</h4>
                     <button class="edit-button">Bewerken <i class="fas fa-pencil-alt fa-fw"></i></button>
                 </div>
-                <textarea name="symptoms">
-                    kopje thee vanmorgen omstreeks 7.30u
+                <textarea name="lastMeal" v-model="lastMeal">
                 </textarea>
             </div>
         </div>
@@ -79,8 +68,7 @@
                     <h4 class="title">Overige Notities:</h4>
                     <button class="edit-button">Bewerken <i class="fas fa-pencil-alt fa-fw"></i></button>
                 </div>
-                <textarea name="symptoms">
-                    ...
+                <textarea name="notes" v-model="notes">
                 </textarea>
             </div>
         </div>
@@ -88,8 +76,68 @@
 </template>
 
 <script>
+
+import {mapState} from 'vuex';
+
 export default {
-    name: "InfoTab"
+    name: "InfoTab",
+    props:['info','room', 'index'],
+    data(){
+        return{
+
+        }
+    },
+    computed:{
+        ...mapState(['patientFiles']),
+        symptoms:{
+            get(){
+                return this.$store.state.patientFiles.cases[this.index].symptoms;
+            },
+            set(value){
+                this.$store.commit('updateSymptoms', {"contents":value, "index":this.index})
+            }
+        },
+        history:{
+            get(){
+                return this.$store.state.patientFiles.cases[this.index].history;
+            },
+            set(value){
+                this.$store.commit('updateHistory', {"contents":value, "index":this.index})
+            }
+        },
+        allergies:{
+            get(){
+                return this.$store.state.patientFiles.cases[this.index].allergies;
+            },
+            set(value){
+                this.$store.commit('updateAllergies', {"contents":value, "index":this.index})
+            }
+        },
+        medication:{
+            get(){
+                return this.$store.state.patientFiles.cases[this.index].medication;
+            },
+            set(value){
+                this.$store.commit('updateMedication', {"contents":value, "index":this.index})
+            }
+        },
+        lastMeal:{
+            get(){
+                return this.$store.state.patientFiles.cases[this.index].lastMeal;
+            },
+            set(value){
+                this.$store.commit('updateLastMeal', {"contents":value, "index":this.index})
+            }
+        },
+        notes:{
+            get(){
+                return this.$store.state.patientFiles.cases[this.index].notes;
+            },
+            set(value){
+                this.$store.commit('updateNotes', {"contents":value, "index":this.index})
+            }
+        },
+    }
 }
 </script>
 

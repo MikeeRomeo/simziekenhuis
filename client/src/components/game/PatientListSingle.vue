@@ -1,11 +1,11 @@
 <template>
     <div class="patient-list-item" @click="openPatientDoc">
         <div class="image">
-            <img src="@/assets/test-profielfoto.jpg" />
+            <img :src="require('@/assets/images/cases/case_'+ taskInfo.id + '_profile.jpg')" />
         </div>
         <div class="content">
-            <h4>Mvr. Verhaag</h4>
-            <p>Kamer 1</p>
+            <h4>{{ taskInfo.firstName }} {{ taskInfo.lastName }}</h4>
+            <p>{{patientRoom}}</p>
         </div>
     </div>
 </template>
@@ -15,9 +15,10 @@ import { bus } from "@/main";
 
 export default {
     name: "PatientListSingle",
+    props:['taskInfo', 'patientRoom'],
     methods:{
         openPatientDoc(){
-            bus.$emit('OPEN_DOC', true);
+            bus.$emit('OPEN_DOC', {'show': true, 'caseId': this.taskInfo.id});
         }
     }
 }
@@ -31,6 +32,7 @@ export default {
         flex-direction: row;
         position: relative;
         cursor: pointer;
+        margin-bottom: 25px;
 
         .image{
             width: 70px;
@@ -69,9 +71,9 @@ export default {
         }
 
         &:hover, &:active{
-            .content{
-                padding-right: 26px;
-            }
+            //.content{
+            //    padding-right: 26px;
+            //}
 
             .image{
                 transform: scale(1.07);
