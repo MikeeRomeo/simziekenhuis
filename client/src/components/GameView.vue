@@ -8,7 +8,7 @@
             <button @click="setRole()">Selecteren</button>
         </section>
 
-        <section  v-if="roleConfirmed && (selectedRole === 'anios_1' || selectedRole === 'anios_2')" class="game-view">
+        <section v-if="roleConfirmed && (selectedRole === 'anios_1' || selectedRole === 'anios_2')" class="game-view">
             <taskbar :tasks="currentTasks" :userRole="selectedRole"></taskbar>
             <interactive-map :tasks="currentTasks" :userRole="selectedRole"></interactive-map>
             <patient-doc :tasks="currentTasks" :userRole="selectedRole"></patient-doc>
@@ -20,9 +20,11 @@
             <phone-list></phone-list>
         </section>
 
-      <section  v-if="selectedRole === 'supervisor' && roleConfirmed" class="game-view">
-        <interactive-map></interactive-map>
-      </section>
+        <section v-if="selectedRole === 'supervisor' && roleConfirmed" class="game-view">
+            <interactive-map></interactive-map>
+            <participant-list :users="users"></participant-list>
+            <doctor-overview :tasks="currentTasks"></doctor-overview>
+        </section>
 
         <player-single
             v-for="client in clients"
@@ -42,6 +44,9 @@ import PopUpContentWrapper from "@/components/PopUpContentWrapper";
 import PatientView from "@/components/game/PatientView";
 import LookListenFeel from "@/components/game/LookListenFeel";
 import PhoneList from "@/components/game/PhoneList";
+import ParticipantList from './game/ParticipantList';
+import DoctorOverview from "@/components/game/DoctorOverview";
+
 
 export default {
     name: "GameView",
@@ -54,6 +59,7 @@ export default {
                 x: 0,
                 y: 0
             },
+            users:[],
             currentTasks: [],
             selectedRole: null,
             roleConfirmed: false,
@@ -74,9 +80,16 @@ export default {
         window.addEventListener('mousemove', this.mouseIsMoving);
 
         this.socket.on('connected_user', data => {
-            console.log('current id: ' + data.user.id);
             this.currentTasks = data.tasks;
-            console.log(data.tasks);
+            this.users = data.users;
+        });
+
+        this.socket.on('new_user', data => {
+            this.users = data;
+        });
+
+        this.socket.on('update_users', data => {
+            this.users = data;
         });
 
         this.socket.on('all_mouse_activity', data => {
@@ -96,6 +109,7 @@ export default {
         }
     },
     components: {
+        DoctorOverview,
         PopUpContentWrapper,
         PlayerSingle,
         Taskbar,
@@ -103,7 +117,8 @@ export default {
         PatientDoc,
         PatientView,
         LookListenFeel,
-        PhoneList
+        PhoneList,
+        ParticipantList
     },
 
 };

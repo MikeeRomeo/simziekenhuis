@@ -13,8 +13,8 @@
             }
         },
         mounted() {
-            console.log('individuele: sheeeet')
-            console.log(this.contents.coords);
+            // console.log('individuele: sheeeet')
+            // console.log(this.contents.coords);
         },
         methods: { 
             

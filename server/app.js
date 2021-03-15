@@ -37,7 +37,7 @@ socketio.on("connection", (socket) => {
 
     var user = {
         id: socket.id,
-        role: 'test',
+        role: 'geen rol gekozen',
         coords:{
             x: 0,
             y: 0
@@ -49,8 +49,7 @@ socketio.on("connection", (socket) => {
     });
 
     users[socket.id] = user;
-    socketio.emit('new_user', users); // Send the dictionnary
-    socketio.emit('connected_user',{ user:user, tasks:tasks}); // Send the dictionnary
+    socketio.emit('connected_user',{ user:user, users:users, tasks:tasks,}); // Send the dictionnary
 
     // socket.emit("position", position);
     // socket.on("move", data => {
@@ -82,6 +81,7 @@ socketio.on("connection", (socket) => {
 
     socket.on('role_selected', data =>{
         user.role = data;
+        socketio.emit('new_user', users); // Send the dictionnary
         console.log(user.role);
     });
 
@@ -91,6 +91,7 @@ socketio.on("connection", (socket) => {
 
     socket.on('disconnect', function(){
         delete users[socket.id];
+        socketio.sockets.emit('update_users', users);
         console.log('disconnected: ' + socket.id);
     });
 });
