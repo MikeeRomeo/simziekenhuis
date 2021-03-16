@@ -7,16 +7,27 @@
                     @click="closeModal">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="modal-content" :class="'modal-content--' + type">
+
+            <div class="modal-content" v-if="type === 'inspecting'" :class="'modal-content--inspect'">
+                <div v-if="message.length !== 0" class="text-content">
+                    {{ message }}
+                </div>
+                <div v-else class="text-content">
+                    Geen afwijking
+                </div>
+            </div>
+
+            <div class="modal-content" v-else :class="'modal-content--' + type">
                 <img v-if="type === 'ECG'" src="@/assets/images/hartfilmpje.png">
                 <img v-if="type === 'X-thorax'" src="@/assets/images/longfoto.png">
-                <img v-if="type === 'eyes'" src="@/assets/images/eyes.png">
-                <video v-if="type === 'head'" width="500" loop autoplay>
-                    <source src="@/assets/images/test_algemene_impressie.mp4" type="video/mp4">
-                </video>
-                <div class="text-content" v-if="type === 'wrist'">
-                    Regulair & equaal,
-                </div>
+                <img v-if="type === 'echo'" src="@/assets/images/longfoto.png">
+<!--                <img v-if="type === 'eyes'" src="@/assets/images/eyes.png">-->
+<!--                <video v-if="type === 'head'" width="500" loop autoplay>-->
+<!--                    <source src="@/assets/images/test_algemene_impressie.mp4" type="video/mp4">-->
+<!--                </video>-->
+<!--                <div class="text-content" v-if="type === 'wrist'">-->
+<!--                    Regulair & equaal,-->
+<!--                </div>-->
             </div>
         </div>
     </transition>
@@ -32,6 +43,7 @@ export default {
         return {
             active: false,
             type: 'image',
+            message:'',
             position: {
                 posX: 0,
                 posY: 0,
@@ -43,6 +55,7 @@ export default {
         this.$nextTick(() => {
             bus.$on('SHOW_POPUP', (data) => {
                 this.active = data.state;
+                this.message = data.message;
 
                 if((data.coords.clientX + 200) > window.innerWidth){
                     this.position.posX = data.coords.clientX - 250;
@@ -53,7 +66,6 @@ export default {
 
                 if(data.type !== null){
                     this.type = data.type;
-                    console.log(data.type);
                 }
             })
         })

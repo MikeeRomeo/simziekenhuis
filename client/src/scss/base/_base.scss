@@ -5,6 +5,9 @@ html, body, #app{
     position: relative;
     padding: 0;
     margin: 0;
+
+    //remove later
+    overflow-x: hidden;
 }
 
 *{

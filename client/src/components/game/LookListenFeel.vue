@@ -4,20 +4,20 @@
          :style="{top: position.posY + 'px', left: position.posX + 'px'}">
         <button type="button"
                 class="button lll-button"
-                @click="showBodyPart($event)"
-                v-if="lookAvailable">
+                @click="showBodyPart($event, selectedType.look)"
+                v-if="selectedType.look.length !== 0">
             Look
         </button>
         <button type="button"
                 class="button lll-button"
-                @click="showBodyPart($event)"
-                v-if="listenAvailable">
+                @click="showBodyPart($event, selectedType.listen)"
+                v-if="selectedType.listen.length !== 0">
             Listen
         </button>
         <button type="button"
                 class="button lll-button"
-                @click="showBodyPart($event)"
-                v-if="feelAvailable">
+                @click="showBodyPart($event, selectedType.feel)"
+                v-if="selectedType.feel.length !== 0">
             Feel
         </button>
     </div>
@@ -31,7 +31,7 @@ export default {
     data(){
         return{
             active: false,
-            selectedType:'',
+            selectedType:null,
             position: {
                 posX: 0,
                 posY: 0,
@@ -49,37 +49,37 @@ export default {
             this.position.posY = data.coords.clientY;
             this.selectedType = data.type;
 
-            switch (data.type) {
-                case "head":
-                    this.lookAvailable = true;
-                    this.listenAvailable = true;
-                    this.feelAvailable = true;
-                    break;
-                case "mouth":
-                    this.lookAvailable = true;
-                    this.listenAvailable = true;
-                    this.feelAvailable = true;
-                    break;
-                case "eyes":
-                    this.lookAvailable = true;
-                    this.listenAvailable = false;
-                    this.feelAvailable = false;
-                    break;
-                case "chest":
-                    this.lookAvailable = true;
-                    this.listenAvailable = true;
-                    this.feelAvailable = true;
-                    break;
-                case "wrist":
-                    this.lookAvailable = false;
-                    this.listenAvailable = false;
-                    this.feelAvailable = true;
-                    break;
-                default:
-                    this.lookAvailable = true;
-                    this.listenAvailable = true;
-                    this.feelAvailable = true;
-            }
+            // switch (data.type) {
+            //     case "head":
+            //         this.lookAvailable = true;
+            //         this.listenAvailable = true;
+            //         this.feelAvailable = true;
+            //         break;
+            //     case "mouth":
+            //         this.lookAvailable = true;
+            //         this.listenAvailable = true;
+            //         this.feelAvailable = true;
+            //         break;
+            //     case "eyes":
+            //         this.lookAvailable = true;
+            //         this.listenAvailable = false;
+            //         this.feelAvailable = false;
+            //         break;
+            //     case "chest":
+            //         this.lookAvailable = true;
+            //         this.listenAvailable = true;
+            //         this.feelAvailable = true;
+            //         break;
+            //     case "wrist":
+            //         this.lookAvailable = false;
+            //         this.listenAvailable = false;
+            //         this.feelAvailable = true;
+            //         break;
+            //     default:
+            //         this.lookAvailable = true;
+            //         this.listenAvailable = true;
+            //         this.feelAvailable = true;
+            // }
 
             // e.resetButton();
         })
@@ -91,9 +91,9 @@ export default {
         //         this.active = false;
         //     },2500);
         // },
-        showBodyPart(event){
+        showBodyPart(event, message){
             this.active = false;
-            bus.$emit('SHOW_POPUP', {'state':true, 'coords':event, 'type':this.selectedType});
+            bus.$emit('SHOW_POPUP', {'state':true, 'coords':event, 'type':'inspecting', 'message':message});
         }
     }
 }

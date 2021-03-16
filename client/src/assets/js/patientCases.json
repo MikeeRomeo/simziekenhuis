@@ -148,33 +148,33 @@
     },
     "physicalExamination": {
       "head":{
-        "look": "",
+        "look": "Bewustzijn AVPU",
         "listen": "",
         "feel": ""
       },
       "mouth":{
-        "look": "Geen afwijking",
-        "listen": "Geen hoorbare ademhaling",
+        "look": "geen centrale cyanose",
+        "listen": "",
         "feel": ""
       },
       "eyes":{
-        "look": "",
+        "look": "PEARRL",
         "listen": "",
         "feel": ""
       },
       "neck":{
-        "look": "",
+        "look": "Geen afwijking",
         "listen": "",
-        "feel": ""
+        "feel": "Geen afwijking"
       },
       "chest":{
-        "look": "",
-        "listen": "",
-        "feel": ""
+        "look": "geen uitwendig letsel/huidafwijkingen/gebruik hulpademhalingsspieren. Normale diepte en symmetrie thoraxexcursies",
+        "listen": "sonore percussie, VAG, geen bijgeluiden",
+        "feel": "geen afwijkingen"
       },
       "back":{
-        "look": "",
-        "listen": "",
+        "look": "geen uitwendig letsel/huidafwijkingen. Normale diepte en symmetrie thoraxexcursies",
+        "listen": "sonore percussie, VAG, geen bijgeluiden",
         "feel": ""
       },
       "armLeft":{
@@ -208,9 +208,9 @@
         "feel": ""
       },
       "legRight":{
-        "look": "",
+        "look": "roodheid rechter onderbeen. omtrekverschil rechts t.o.v. links: 4cm), rood, glanzend.",
         "listen": "",
-        "feel": ""
+        "feel": "warm , pitting oedeem ++."
       },
       "feetRight":{
         "look": "",
