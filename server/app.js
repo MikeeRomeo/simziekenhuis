@@ -28,6 +28,13 @@ var tasks = [
         caseId: 2,
         assignedTo:"anios_2",
         room:"kamer 2"
+    },
+    {
+        type: "distraction",
+        id: 3,
+        caseId: 3,
+        assignedTo:"anios_2",
+        room:"Telefoon"
     }
 ];
 

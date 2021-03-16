@@ -48,6 +48,20 @@ export default {
                     id: 2,
                     caseId: 2,
                     room: "kamer 2"
+                },
+                {
+                    name: "storing: Afdelingsvraag",
+                    type: "distraction",
+                    id: 3,
+                    caseId: 3,
+                    room: "Koffiekamer"
+                },
+                {
+                    name: "Storing: Telefoontje",
+                    type: "distraction",
+                    id: 4,
+                    caseId: 4,
+                    room: "Telefoon"
                 }
             ]
         }

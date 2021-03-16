@@ -32,7 +32,7 @@ export default {
     computed:{
         sortedTasks() {
             if(this.userRole === 'supervisor'){
-                return this.tasks;
+                return this.tasks.filter(task => task.type === 'case')
             }
             if(this.userRole === 'patient_1'){
                 return this.tasks.filter(task => task.caseId === 1);
@@ -41,7 +41,7 @@ export default {
                 return this.tasks.filter(task => task.caseId === 2);
             }
             else{
-                return this.tasks.filter(task => task.assignedTo === this.userRole);
+                return this.tasks.filter(task => task.assignedTo === this.userRole && task.type === 'case')
             }
         }
     }

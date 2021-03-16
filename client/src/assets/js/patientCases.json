@@ -284,5 +284,17 @@
         ]
       }
     ]
+  },
+  {
+    "caseName": "Afdelingsvraag",
+    "id": 3,
+    "disc": "Collega komt binnen met een vraag",
+    "type": "question"
+  },
+  {
+    "caseName": "Telefoontje",
+    "id": 4,
+    "disc": "Je krijgt een telefoontje",
+    "type": "phone"
   }
 ]

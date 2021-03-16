@@ -1,12 +1,19 @@
 <template>
     <div id="taskbar">
         <task v-for="task in sortedTasks" :task-info="getCase(task.caseId)" :patientRoom="task.room" :key="task.id"></task>
+
+        <distraction v-for="item in sortedDistractions"
+                     :task-info="getCase(item.caseId)"
+                     :patientRoom="item.room"
+                  :key="item.id">
+        </distraction>
         <task-message-modal></task-message-modal>
     </div>
 </template>
 
 <script>
 import Task from './Task';
+import Distraction from './Distraction';
 import TaskMessageModal from './modals/TaskMessageModal';
 import cases from '@/assets/js/patientCases.json';
 
@@ -53,10 +60,13 @@ export default {
     },
     computed:{
         sortedTasks() {
-            return this.tasks.filter(task => task.assignedTo === this.userRole);
+            return this.tasks.filter(task => task.type === 'case' && task.assignedTo === this.userRole);
+        },
+        sortedDistractions() {
+            return this.tasks.filter(task => task.type === 'distraction' && this.userRole);
         }
     },
-    components: {Task, TaskMessageModal},
+    components: {Task, Distraction, TaskMessageModal},
 }
 </script>
 

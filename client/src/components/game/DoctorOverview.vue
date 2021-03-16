@@ -92,7 +92,7 @@ export default {
         },
         getCase(id) {
             return this.allCases.find(item => {
-                if (item.id === id) {
+                if (item.id === id && item.type === 'case') {
                     return item;
                 }
             })

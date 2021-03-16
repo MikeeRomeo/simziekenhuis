@@ -6,6 +6,12 @@
             :patientRoom="task.room"
             :key="task.id">
         </task>
+        <distraction
+            v-for="task in sortedDistractions"
+            :task-info="getCase(task.caseId)"
+            :patientRoom="task.room"
+            :key="task.id">
+        </distraction>
 
         <button class="red-button" @click="openTaskModal">Nieuw taak</button>
     </div>
@@ -15,6 +21,7 @@
 import Task from "@/components/game/Task";
 import cases from '@/assets/js/patientCases.json';
 import {bus} from "@/main";
+import Distraction from "@/components/game/Distraction";
 
 export default {
     name: "CurrentTasks",
@@ -38,10 +45,14 @@ export default {
     },
     computed:{
         sortedTasks() {
-            return this.tasks.filter(task => task.assignedTo === this.selectedUser);
+            return this.tasks.filter(task => task.type === 'case' && task.assignedTo === this.selectedUser);
+        },
+        sortedDistractions() {
+            return this.tasks.filter(task => task.type === 'distraction' && this.selectedUser);
         }
     },
     components:{
+        Distraction,
         Task,
     },
 }

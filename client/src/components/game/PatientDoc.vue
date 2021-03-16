@@ -123,7 +123,7 @@ export default {
     },
     computed:{
         sortedTasks() {
-            return this.tasks.filter(task => task.assignedTo === this.userRole);
+            return this.tasks.filter(task => task.assignedTo === this.userRole && task.type === 'case');
         }
     },
     components: {
