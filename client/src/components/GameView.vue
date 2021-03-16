@@ -26,6 +26,12 @@
             <doctor-overview :tasks="currentTasks"></doctor-overview>
         </section>
 
+        <section v-if="roleConfirmed && (selectedRole === 'patient_1' || selectedRole === 'patient_2')"
+                 class="game-view">
+            <interactive-map :tasks="currentTasks" :userRole="selectedRole"></interactive-map>
+            <patient-sim-doc :tasks="currentTasks" :userRole="selectedRole"></patient-sim-doc>
+        </section>
+
 <!--        <player-single-->
 <!--            v-for="client in clients"-->
 <!--            :key="client.id"-->
@@ -46,6 +52,7 @@ import LookListenFeel from "@/components/game/LookListenFeel";
 import PhoneList from "@/components/game/PhoneList";
 import ParticipantList from './game/ParticipantList';
 import DoctorOverview from "@/components/game/DoctorOverview";
+import PatientSimDoc from "@/components/game/PatientSimDoc";
 import {bus} from "@/main";
 
 export default {
@@ -65,10 +72,10 @@ export default {
             roleConfirmed: false,
             roles: [
                 'supervisor',
-                'patient',
+                'patient_1',
+                'patient_2',
                 'anios_1',
                 'anios_2',
-                'verpleegkundige'
             ],
             logs:[]
         }
@@ -137,7 +144,8 @@ export default {
         PatientView,
         LookListenFeel,
         PhoneList,
-        ParticipantList
+        ParticipantList,
+        PatientSimDoc
     },
 
 };

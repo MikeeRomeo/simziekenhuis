@@ -158,11 +158,11 @@ export default {
         cursor: pointer;
         transition: opacity 0.2s ease-in-out;
 
-        background-color: #0051b6;
-        opacity: .5;
-        &:hover{
-            opacity: 0.8;
-        }
+        //background-color: #0051b6;
+        //opacity: .5;
+        //&:hover{
+        //    opacity: 0.8;
+        //}
     }
 
     .head-cta{

@@ -33,7 +33,14 @@ export default {
         sortedTasks() {
             if(this.userRole === 'supervisor'){
                 return this.tasks;
-            }else{
+            }
+            if(this.userRole === 'patient_1'){
+                return this.tasks.filter(task => task.caseId === 1);
+            }
+            if(this.userRole === 'patient_2'){
+                return this.tasks.filter(task => task.caseId === 2);
+            }
+            else{
                 return this.tasks.filter(task => task.assignedTo === this.userRole);
             }
         }
