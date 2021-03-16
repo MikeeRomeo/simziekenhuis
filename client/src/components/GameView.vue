@@ -26,11 +26,11 @@
             <doctor-overview :tasks="currentTasks"></doctor-overview>
         </section>
 
-        <player-single
-            v-for="client in clients"
-            :key="client.id"
-            :contents="client">
-        </player-single>
+<!--        <player-single-->
+<!--            v-for="client in clients"-->
+<!--            :key="client.id"-->
+<!--            :contents="client">-->
+<!--        </player-single>-->
     </div>
 </template>
 
@@ -74,12 +74,12 @@ export default {
         }
     },
     created() {
-        // this.socket = io.connect("http://localhost:3000");
-        this.socket = io.connect("http://mikeromeo.codeguys.nl:3000");
+        this.socket = io.connect("http://localhost:3000");
+        // this.socket = io.connect("https://mikeromeo.codeguys.nl:3000");
         this.socket.emit('join', 'Game');
     },
     mounted() {
-        window.addEventListener('mousemove', this.mouseIsMoving);
+        // window.addEventListener('mousemove', this.mouseIsMoving);
 
         this.socket.on('connected_user', data => {
             this.currentTasks = data.tasks;
@@ -103,17 +103,25 @@ export default {
             this.$store.commit('addNewLog', data)
         });
 
+        this.socket.on('new_task', data => {
+            this.currentTasks.push(data);
+        });
+
         bus.$on('SEND_ACTION', (data) => {
             this.socket.emit('send_log', {'user':this.selectedRole, 'message':data});
         })
+
+        bus.$on('SEND_TASK', (data) => {
+            this.socket.emit('send_new_task', data);
+        })
     },
     destroyed() {
-        window.removeEventListener('mousemove', this.mouseIsMoving);
+        // window.removeEventListener('mousemove', this.mouseIsMoving);
     },
     methods: {
-        mouseIsMoving(e) {
-            this.socket.emit('mouse_activity', {x: e.pageX, y: e.pageY});
-        },
+        // mouseIsMoving(e) {
+        //     this.socket.emit('mouse_activity', {x: e.pageX, y: e.pageY});
+        // },
         setRole() {
             this.socket.emit('role_selected', this.selectedRole);
             this.roleConfirmed = true;

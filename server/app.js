@@ -26,8 +26,8 @@ var tasks = [
         type: "case",
         id: 2,
         caseId: 2,
-        assignedTo:"anios_1",
-        room:"kamer 4"
+        assignedTo:"anios_2",
+        room:"kamer 2"
     }
 ];
 
@@ -90,6 +90,18 @@ socketio.on("connection", (socket) => {
         var newLog = { user:data.user, type: data.message.type, message: data.message.message};
         logs.push(newLog);
         socketio.emit('new_log', newLog);
+    });
+
+    socket.on('send_new_task', data =>{
+        var newTask = {
+            type:data.task.type,
+            id: tasks.length + 1,
+            caseId: data.task.caseId,
+            assignedTo: data.assigned_to,
+            room: data.task.room,
+        };
+        tasks.push(newTask);
+        socketio.emit('new_task', newTask);
     });
 
     socket.on('update_tasks', data =>{

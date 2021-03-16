@@ -2,7 +2,7 @@
     <section>
         <div class="patient-list">
             <patient-list-single
-                v-for="task in tasks"
+                v-for="task in sortedTasks"
                 :taskInfo="getCase(task.caseId)"
                 :patientRoom="task.room"
                 :key="task.id">
@@ -119,6 +119,11 @@ export default {
                     return item;
                 }
             })
+        }
+    },
+    computed:{
+        sortedTasks() {
+            return this.tasks.filter(task => task.assignedTo === this.userRole);
         }
     },
     components: {

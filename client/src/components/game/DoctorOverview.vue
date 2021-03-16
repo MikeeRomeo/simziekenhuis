@@ -42,12 +42,14 @@
                 </div>
 
                 <div class="user__active-tab">
-                    <current-tasks :tasks="tasks" v-if="currentTab === 1"></current-tasks>
+                    <current-tasks :selected-user="user.role" :tasks="tasks" v-if="currentTab === 1"></current-tasks>
                     <pending-requests  v-if="currentTab === 2"></pending-requests>
                     <action-log :selected-user="user.role" v-if="currentTab === 3"></action-log>
                 </div>
             </div>
         </transition>
+
+        <add-task-modal></add-task-modal>
     </section>
 </template>
 
@@ -58,6 +60,7 @@ import UserIcon from '@/assets/icons/user-solid.svg';
 import CurrentTasks from "@/components/game/user-tabs/CurrentTasks";
 import PendingRequests from "@/components/game/user-tabs/PendingRequests";
 import ActionLog from "@/components/game/user-tabs/ActionLog";
+import AddTaskModal from "@/components/game/modals/AddTaskModal";
 
 export default {
     name: "DoctorOverview",
@@ -103,6 +106,7 @@ export default {
         }
     },
     components: {
+        AddTaskModal,
         ActionLog,
         PendingRequests,
         CurrentTasks,

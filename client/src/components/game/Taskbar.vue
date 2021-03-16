@@ -1,6 +1,6 @@
 <template>
     <div id="taskbar">
-        <task v-for="task in tasks" :task-info="getCase(task.caseId)" :patientRoom="task.room" :key="task.id"></task>
+        <task v-for="task in sortedTasks" :task-info="getCase(task.caseId)" :patientRoom="task.room" :key="task.id"></task>
         <task-message-modal></task-message-modal>
     </div>
 </template>
@@ -49,6 +49,11 @@ export default {
                     return item;
                 }
             })
+        }
+    },
+    computed:{
+        sortedTasks() {
+            return this.tasks.filter(task => task.assignedTo === this.userRole);
         }
     },
     components: {Task, TaskMessageModal},

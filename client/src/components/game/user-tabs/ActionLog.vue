@@ -14,7 +14,8 @@ import {mapGetters} from 'vuex';
 export default {
     name: "ActionLog",
     props: ['selectedUser'],
-    mounted() {
+    methods:{
+
     },
     computed: {
         ...mapGetters(['userLogs']),
