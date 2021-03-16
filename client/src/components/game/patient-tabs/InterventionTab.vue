@@ -5,25 +5,45 @@
                 <p class="description">
                     Nekkraag
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Nekkraag')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Endotracheale tube
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Endotracheale tube')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Oropharyngeale luchtweg
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Oropharyngeale luchtweg')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Nasopharyngeale luchtweg
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Nasopharyngeale luchtweg')">
+                    Toepassen
+                </button>
             </div>
         </intervention-list>
 
@@ -32,43 +52,78 @@
                 <p class="description">
                     Non rebreathing masker
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Non rebreathing masker')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Neusbril
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Neusbril')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Masker ballon beademing
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Masker ballon beademing')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Vernevelen met epinefrine (adreneline)
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Vernevelen met epinefrine (adreneline)')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Vernevelen met NaCI 0.9%
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Vernevelen met NaCI 0.9%')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Vernevelen met Salbutamol/Ipratroplium
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Vernevelen met Salbutamol/Ipratroplium')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Arterial bloedgas spuit
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Arterial bloedgas spuit')">
+                    Toepassen
+                </button>
             </div>
 
         </intervention-list>
@@ -78,31 +133,56 @@
                 <p class="description">
                     Intraveneuze catheter grijs
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Intraveneuze catheter grijs')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Intraveneuze catheter groen
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Intraveneuze catheter groen')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Intraveneuze catheter roze
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Intraveneuze catheter roze')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Botnaald
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Botnaald')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Urinecatheter
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Urinecatheter')">
+                    Toepassen
+                </button>
             </div>
         </intervention-list>
 
@@ -111,7 +191,12 @@
                 <p class="description">
                     Point-of-care glucose
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Point-of-care glucose')">
+                    Toepassen
+                </button>
             </div>
         </intervention-list>
 
@@ -120,13 +205,23 @@
                 <p class="description">
                     Deken
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Deken')">
+                    Toepassen
+                </button>
             </div>
             <div class="intervention-list-item">
                 <p class="description">
                     Thermometer
                 </p>
-                <button type="button" class="red-button">Toepassen</button>
+                <button
+                    type="button"
+                    class="red-button"
+                    @click="sendAction('Thermometer')">
+                    Toepassen
+                </button>
             </div>
         </intervention-list>
 
@@ -135,9 +230,15 @@
 
 <script>
 import InterventionList from '@/components/game/patient-tabs/InterventionList';
+import {bus} from "@/main";
 
 export default {
     name: "InterventionTab",
+    methods:{
+      sendAction(message){
+          bus.$emit('SEND_ACTION', {'type': 'intervention', 'message': message});
+      }
+    },
     components:{
         InterventionList
     }

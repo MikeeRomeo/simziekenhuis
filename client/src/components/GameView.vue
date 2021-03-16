@@ -46,7 +46,7 @@ import LookListenFeel from "@/components/game/LookListenFeel";
 import PhoneList from "@/components/game/PhoneList";
 import ParticipantList from './game/ParticipantList';
 import DoctorOverview from "@/components/game/DoctorOverview";
-
+import {bus} from "@/main";
 
 export default {
     name: "GameView",
@@ -70,6 +70,7 @@ export default {
                 'anios_2',
                 'verpleegkundige'
             ],
+            logs:[]
         }
     },
     created() {
@@ -95,6 +96,15 @@ export default {
         this.socket.on('all_mouse_activity', data => {
             this.clients = data.users;
         });
+
+        this.socket.on('new_log', data => {
+            console.log(data);
+            this.$store.commit('addNewLog', data)
+        });
+
+        bus.$on('SEND_ACTION', (data) => {
+            this.socket.emit('send_log', {'user':this.selectedRole, 'message':data});
+        })
     },
     destroyed() {
         window.removeEventListener('mousemove', this.mouseIsMoving);

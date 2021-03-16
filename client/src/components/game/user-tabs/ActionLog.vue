@@ -1,16 +1,27 @@
 <template>
-    <div class="request-list">
-        <research-request :name="'ECG'" :icon="'fas fa-heartbeat'" :duration="5"></research-request>
-        <research-request :name="'Lab'" :icon="'fas fa-flask'" :duration="15" ></research-request>
-        <research-request :name="'X-thorax'" :icon="'fas fa-lungs'" :duration="10"></research-request>
+    <div class="action-log">
+        <div class="message" v-for="log in sortedByUser">
+            {{ log }}
+        </div>
     </div>
 </template>
 
 <script>
 import ResearchRequest from "@/components/game/patient-tabs/ResearchRequest";
+import {mapGetters} from 'vuex';
 
 export default {
     name: "ActionLog",
+    props:['selectedUser'],
+    mounted() {
+    },
+    computed:{
+        ...mapGetters(['userLogs']),
+
+        sortedByUser(){
+            return this.userLogs.filter(log => log.user === this.selectedUser);
+        }
+    },
     components:{
         ResearchRequest,
     },
@@ -18,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .request-list{
+    .action-log{
         margin-top: 20px;
         display: flex;
         flex-direction: row;

@@ -31,6 +31,7 @@ var tasks = [
     }
 ];
 
+var logs = [];
 var users = {};
 
 socketio.on("connection", (socket) => {
@@ -83,6 +84,12 @@ socketio.on("connection", (socket) => {
         user.role = data;
         socketio.emit('new_user', users); // Send the dictionnary
         console.log(user.role);
+    });
+
+    socket.on('send_log', data =>{
+        var newLog = { user:data.user, type: data.message.type, message: data.message.message};
+        logs.push(newLog);
+        socketio.emit('new_log', newLog);
     });
 
     socket.on('update_tasks', data =>{

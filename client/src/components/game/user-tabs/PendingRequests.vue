@@ -1,8 +1,6 @@
 <template>
     <div class="request-list">
-        <research-request :name="'ECG'" :icon="'fas fa-heartbeat'" :duration="5"></research-request>
-        <research-request :name="'Lab'" :icon="'fas fa-flask'" :duration="15" ></research-request>
-        <research-request :name="'X-thorax'" :icon="'fas fa-lungs'" :duration="10"></research-request>
+        Komt nog
     </div>
 </template>
 

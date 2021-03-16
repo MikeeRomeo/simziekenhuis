@@ -44,7 +44,7 @@
                 <div class="user__active-tab">
                     <current-tasks :tasks="tasks" v-if="currentTab === 1"></current-tasks>
                     <pending-requests  v-if="currentTab === 2"></pending-requests>
-                    <action-log  v-if="currentTab === 3"></action-log>
+                    <action-log :selected-user="user.role" v-if="currentTab === 3"></action-log>
                 </div>
             </div>
         </transition>
