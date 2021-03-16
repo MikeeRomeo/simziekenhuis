@@ -1,11 +1,11 @@
 <template>
     <div class="research-request">
         <div class="tag">
-            <i :class="icon"></i>
+            <i :class="info.icon"></i>
         </div>
 
         <div class="request-content">
-            <h4>{{ name }}</h4>
+            <h4>{{ info.type }}</h4>
             <button v-if="isRequested === false && resultCollected === false"
                     type="button"
                     class="red-button"
@@ -40,13 +40,13 @@ import {bus} from "@/main";
 
 export default {
     name: "ResearchRequest",
-    props:['icon', 'name', 'duration'],
+    props:['info'],
     data(){
         return{
             time:0,
             isRequested: false,
             resultCollected: false,
-            countDown : 10,
+            countDown : 4,
             percentage: 0,
         }
     },
@@ -55,13 +55,17 @@ export default {
     },
     methods:{
         openPopUpContents(event){
-            bus.$emit('SHOW_POPUP', {'state':true,'coords':event, 'type':this.name});
+            bus.$emit('SHOW_POPUP', {'state':true,'coords':event, 'type':'request', 'request':this.info});
+            this.sendAction(this.info.type + ' aangevraagd');
+        },
+        sendAction(message){
+            bus.$emit('SEND_ACTION', {'type': 'intervention', 'message': message});
         },
         countDownTimer(){
             if(this.countDown > 0) {
                 setTimeout(() => {
                     this.countDown -= 1
-                    this.percentage += 10
+                    this.percentage += 25
                     this.countDownTimer()
                 }, 1000)
             }

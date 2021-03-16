@@ -93,14 +93,26 @@
       }
     },
     "researchRequests":{
-      "ecg": { "type": "ECG", "result": "ecg_1.png", "delay": 5, "file": true},
-      "radiology": [
-        { "type": "X-thorax", "result": "thorax_1.png", "delay": 10, "rapport": "", "rapportDelay": 10, "file": true }
-      ],
+      "ecg": {
+        "type": "ECG",
+        "result": "ecg_1.png",
+        "delay": 5,
+        "icon": "fas fa-heartbeat",
+        "file": true
+      },
+      "thorax": {
+        "type": "X-thorax",
+        "result": "thorax_1.png",
+        "delay": 10, "rapport": "",
+        "rapportDelay": 10,
+        "icon": "fas fa-lungs",
+        "file": true
+      },
       "lab": {
         "type": "Lab",
         "result": "ABG: pH 7.28, O2 9.6kPa, CO2 4.6kPa, bic 16.8mmol/L, CRP246, L18.6 (ns++), lactaat 3.6, Kr106umol/L, voorts geen afwijkingen. Sed: geen afwijkingen.",
         "delay": 20,
+        "icon": "fas fa-flask",
         "file": false
       }
     },
@@ -219,15 +231,36 @@
       }
     },
     "researchRequests":{
-      "ecg": { "type": "ECG", "result": "ecg_2.png", "delay": 5, "file": true},
-      "radiology": [
-        { "type": "X-thorax", "result": "thorax_2.png", "delay": 10, "rapport": "", "rapportDelay": 10, "file": true },
-        { "type": "Echo", "result": "thorax_1.png", "delay": 10, "rapport": "", "rapportDelay": 10, "file": false }
-      ],
+      "ecg": {
+        "type": "ECG",
+        "result": "ecg_2.png",
+        "delay": 5,
+        "icon": "fas fa-heartbeat",
+        "file": true
+      },
+      "thorax":{
+        "type": "X-thorax",
+        "result": "thorax_2.jpg",
+        "delay": 10,
+        "rapport": "",
+        "rapportDelay": 10,
+        "icon": "fas fa-lungs",
+        "file": true
+      },
+      "echo": {
+        "type": "Echo",
+        "result": "DVT rechter onderbeen tot aan knie",
+        "delay": 10,
+        "rapport": "",
+        "rapportDelay": 10,
+        "icon": "fas fa-lungs",
+        "file": false
+      },
       "lab": {
         "type": "Lab",
         "result": "ABG: pH 7.28, O2 9.6kPa, CO2 4.6kPa, bic 16.8mmol/L, CRP246, L18.6 (ns++), lactaat 3.6, Kr106umol/L, voorts geen afwijkingen. Sed: geen afwijkingen.",
         "delay": 20,
+        "icon": "fas fa-flask",
         "file": false
       }
     },

@@ -17,10 +17,17 @@
                 </div>
             </div>
 
-            <div class="modal-content" v-else :class="'modal-content--' + type">
-                <img v-if="type === 'ECG'" src="@/assets/images/hartfilmpje.png">
-                <img v-if="type === 'X-thorax'" src="@/assets/images/longfoto.png">
-                <img v-if="type === 'echo'" src="@/assets/images/longfoto.png">
+            <div class="modal-content" v-if="type === 'request'" :class="'modal-content--inspect'">
+                <img v-if="request.file === true" :src="require('@/assets/images/'+ request.result +'')">
+                <div v-else class="text-content">
+                    {{ request.result }}
+                </div>
+            </div>
+
+<!--            <div class="modal-content" v-else :class="'modal-content&#45;&#45;' + type">-->
+<!--                <img v-if="type === 'ECG'" src="@/assets/images/ecg_1.png">-->
+<!--                <img v-if="type === 'X-thorax'" src="@/assets/images/thorax_1.png">-->
+<!--                <img v-if="type === 'echo'" src="@/assets/images/thorax_1.png">-->
 <!--                <img v-if="type === 'eyes'" src="@/assets/images/eyes.png">-->
 <!--                <video v-if="type === 'head'" width="500" loop autoplay>-->
 <!--                    <source src="@/assets/images/test_algemene_impressie.mp4" type="video/mp4">-->
@@ -28,7 +35,7 @@
 <!--                <div class="text-content" v-if="type === 'wrist'">-->
 <!--                    Regulair & equaal,-->
 <!--                </div>-->
-            </div>
+<!--            </div>-->
         </div>
     </transition>
 </template>
@@ -44,6 +51,7 @@ export default {
             active: false,
             type: 'image',
             message:'',
+            request:'',
             position: {
                 posX: 0,
                 posY: 0,
@@ -56,7 +64,7 @@ export default {
             bus.$on('SHOW_POPUP', (data) => {
                 this.active = data.state;
                 this.message = data.message;
-
+                this.request =  data.request;
                 if((data.coords.clientX + 200) > window.innerWidth){
                     this.position.posX = data.coords.clientX - 250;
                 }else{

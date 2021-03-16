@@ -1,6 +1,7 @@
 const state = {
     logs:[
-        { user: "anios_1", type: "intervention", message: "geen acties" },
+        { user: "anios_1", type: "intervention", message: "Sessie gestart" },
+        { user: "anios_2", type: "intervention", message: "Sessie gestart" },
     ]
 };
 

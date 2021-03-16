@@ -1,8 +1,8 @@
 <template>
     <div class="request-list">
-        <research-request :name="'ECG'" :icon="'fas fa-heartbeat'" :duration="5"></research-request>
-        <research-request :name="'Lab'" :icon="'fas fa-flask'" :duration="15" ></research-request>
-        <research-request :name="'X-thorax'" :icon="'fas fa-lungs'" :duration="10"></research-request>
+        <research-request v-for="request in info.researchRequests"
+                          :info="request"
+                            :key="request.type"></research-request>
     </div>
 </template>
 
@@ -11,6 +11,7 @@ import ResearchRequest from "@/components/game/patient-tabs/ResearchRequest";
 
 export default {
     name: "ResearchTab",
+    props:['info'],
     components:{
         ResearchRequest,
     },
