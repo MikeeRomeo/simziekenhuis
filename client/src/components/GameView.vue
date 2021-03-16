@@ -21,7 +21,7 @@
         </section>
 
         <section v-if="selectedRole === 'supervisor' && roleConfirmed" class="game-view">
-            <interactive-map></interactive-map>
+            <interactive-map :tasks="currentTasks" :userRole="selectedRole"></interactive-map>
             <participant-list :users="users"></participant-list>
             <doctor-overview :tasks="currentTasks"></doctor-overview>
         </section>
@@ -74,7 +74,8 @@ export default {
         }
     },
     created() {
-        this.socket = io.connect("https://mikeromeo.codeguys.nl:3000");
+        this.socket = io.connect("http://localhost:3000");
+        // this.socket = io.connect("https://mikeromeo.codeguys.nl:3000");
         this.socket.emit('join', 'Game');
     },
     mounted() {

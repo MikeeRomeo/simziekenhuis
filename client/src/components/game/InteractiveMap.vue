@@ -3,11 +3,11 @@
         <img src="@/assets/map-temporary.png" class="map__image"/>
         <div class="map-icon-wrapper">
             <div class="patient-icon"
-                 v-for="patient in patients"
+                 v-for="patient in sortedTasks"
                  :key="patient.name"
-                 :class="'room-' + patient.room"
+                 :class="'room-' + patient.caseId"
                  @click="viewPatient($event, patient)">
-                <img :src="require(`@/assets/${patient.img}`)" alt="">
+                <img :src="require('@/assets/images/cases/case_'+ patient.caseId + '_profile.jpg')" />
             </div>
         </div>
     </section>
@@ -18,15 +18,10 @@ import {bus} from "@/main";
 
 export default {
     name: "InteractiveMap",
+    props:['tasks','userRole'],
     data() {
         return {
-            patients: {
-                verhaag: {
-                    name: 'Mvr. Verhaag',
-                    room: 1,
-                    img: 'test-profielfoto.jpg',
-                }
-            }
+
         }
     },
     methods:{
@@ -34,6 +29,15 @@ export default {
             bus.$emit('SHOW_PATIENT_VIEW', {'state':true, 'coords':event, 'patient':patient});
         }
     },
+    computed:{
+        sortedTasks() {
+            if(this.userRole === 'supervisor'){
+                return this.tasks;
+            }else{
+                return this.tasks.filter(task => task.assignedTo === this.userRole);
+            }
+        }
+    }
 
 }
 </script>
@@ -82,6 +86,11 @@ export default {
         &.room-1{
             top: 66%;
             left: 47%;
+        }
+
+        &.room-2{
+            top: 65%;
+            left: 22%;
         }
     }
 }
