@@ -186,7 +186,7 @@
             </div>
         </intervention-list>
 
-        <intervention-list :tag="'d'" :name="'Airway'">
+        <intervention-list :tag="'d'" :name="'Disabilities'">
             <div class="intervention-list-item">
                 <p class="description">
                     Point-of-care glucose

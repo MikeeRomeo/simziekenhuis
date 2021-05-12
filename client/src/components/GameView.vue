@@ -81,8 +81,8 @@ export default {
         }
     },
     created() {
-        // this.socket = io.connect("http://localhost:3000");
-        this.socket = io.connect("https://mikeromeo.codeguys.nl:3000");
+        this.socket = io.connect("http://localhost:3000");
+        // this.socket = io.connect("https://mikeromeo.codeguys.nl:3000");
         this.socket.emit('join', 'Game');
     },
     mounted() {
